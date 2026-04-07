@@ -13,13 +13,13 @@
 
 		// 行：输出低电平扫描
 		row-gpios
-			= <&gpio0 6 GPIO_ACTIVE_LOW>,
-			  <&gpio0 7 GPIO_ACTIVE_LOW>;
+			= <&gpio0 17 GPIO_ACTIVE_LOW>,
+			  <&gpio0 20 GPIO_ACTIVE_LOW>;
 
 		// 列：输入上拉 + 低电平触发（标准键盘！）
 		col-gpios
-			= <&gpio0 15 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
-			  <&gpio0 16 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+			= <&gpio0 22 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
+			  <&gpio0 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
 							
 		debounce-period = <5>;
 	};
