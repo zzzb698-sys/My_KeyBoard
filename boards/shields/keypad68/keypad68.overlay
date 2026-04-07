@@ -1,4 +1,4 @@
-#include <nice_nano.dtsi>
+#include <nrf52840_mdk_nice_nano.dtsi>  // 👈 唯一正确头文件
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / {
