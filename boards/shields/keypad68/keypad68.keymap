@@ -12,7 +12,7 @@
             // | 7 | 8 | 9 |
             // | ENT | 0 | BSPC |
             bindings = <
-                &kp N1    &kp N2    &kp N3
+                &kp A    &kp S    &kp N3
                 &kp N4    &kp N5    &kp N6
                 &kp N7    &kp N8    &kp N9
                 &kp RET   &kp N0    &kp BSPC
