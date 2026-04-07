@@ -1,40 +1,65 @@
-#include <nrf52840_mdk_nice_nano.dtsi>  // 👈 唯一正确头文件
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/adc/nrf-adc.h>  // 添加 ADC 常量定义
 
 / {
-	chosen {
-		zmk,kscan = &kscan_gpio;
-		zmk,matrix_transform = &matrix_transform;
-	};
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+        zmk,battery = &vbatt;
+    };
 
-	kscan_gpio: kscan_gpio {
-		compatible = "zmk,kscan-gpio";
-		label = "GPIO KSCAN";
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>;
+        rows = <4>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+            RC(3,0) RC(3,1) RC(3,2)
+        >;
+    };
 
-		// 行：输出低电平扫描
-		row-gpios
-			= <&gpio0 17 GPIO_ACTIVE_LOW>,
-			  <&gpio0 20 GPIO_ACTIVE_LOW>;
+    vbatt: vbatt {
+        compatible = "zmk,battery-voltage-divider";
+        io-channels = <&adc 2>;
+        power-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+        output-ohms = <2000000>;    // 2M 接地（下地）
+        full-ohms = <2800000>;      // 总和 2.8M
+    };
 
-		// 列：输入上拉 + 低电平触发（标准键盘！）
-		col-gpios
-			= <&gpio0 22 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>,
-			  <&gpio0 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-							
-		debounce-period = <5>;
-	};
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+        
+        row-gpios
+            = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+            , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+            ;
 
-	matrix_transform: matrix_transform {
-		compatible = "zmk,matrix-transform";
-		rows = <2>;
-		cols = <2>;
-		map = <
-			RC(0,0) RC(0,1)
-			RC(1,0) RC(1,1)
-		>;
-	};
+        col-gpios
+            = <&gpio1 0 GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 4 GPIO_ACTIVE_HIGH>
+            ;
+    };
 };
 
+// ⭐ 关键：添加 ADC 节点配置（之前缺失！）
 &adc {
-	status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+    
+    channel@2 {
+        reg = <2>;
+        zephyr,gain = "ADC_GAIN_1_6";           // 量程 0-3.6V
+        zephyr,reference = "ADC_REF_INTERNAL";  // 0.6V 内部参考
+        zephyr,acquisition-time = <ADC_ACQ_TIME(ADC_ACQ_TIME_MICROSECONDS, 40)>;  // 高阻值必须！
+        zephyr,input-positive = <NRF_SAADC_AIN2>;  // P0.04 = AIN2
+        zephyr,resolution = <12>;
+        zephyr,oversampling = <8>;  // 增加 oversampling 提高精度
+    };
 };
