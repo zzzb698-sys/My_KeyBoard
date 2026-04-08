@@ -57,13 +57,11 @@
 
 
  	leds {
-		compatible = "zmk,led-gpio";
-		caps_lock_led {
-			// 你的硬件：P0.29，高电平点亮
-			gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
-			label = "Caps Lock";
-		};
-	};
+        compatible = "gpio-leds";
+        caps_lock_led: caps_lock_led {
+            gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;
+        };
+    };
 
 
 
