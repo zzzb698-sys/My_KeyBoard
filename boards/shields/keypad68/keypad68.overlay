@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/adc/nrf-adc.h>  // 添加 ADC 常量定义
+#include <dt-bindings/zmk/hid_indicators.h>
 
 / {
     chosen {
