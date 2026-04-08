@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/adc/nrf-adc.h>  // 添加 ADC 常量定义
+#include <dt-bindings/zmk/hid_indicators.h>
 
 / {
     chosen {
@@ -53,17 +54,37 @@
 		>;
     };
 
-    // 大写锁定指示灯
-    caps_lock_led: caps_lock_led {
-        compatible = "zmk,led-gpio";
-        label = "Caps Lock LED";
-        gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>;  // 👈 这里改你的引脚
-        save-to-disk;
+
+
+ // 1. 定义GPIO LED驱动和Caps LED
+    leds {
+        compatible = "gpio-leds";
+        
+        // 这里替换成你的实际GPIO引脚！
+        caps_lock_led: caps_lock_led {
+            gpios = <&gpio0 29 GPIO_ACTIVE_HIGH>; // 示例：gpio0第5脚，高电平亮
+            // 低电平亮就改成：gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
+            label = "Caps Lock LED"; // 可选，方便识别
+        };
+        
+        // 有Num/Scroll灯也可以在这里一起加，格式一样
     };
 
-    chosen {
-        zmk,led-caps-lock = &caps_lock_led;  // 绑定大写灯
+    // 2. 绑定HID指示灯到上面的LED
+    indicators {
+        compatible = "zmk,indicator-leds";
+        
+        caps_lock_indicator: caps_lock {
+            indicator = <HID_INDICATOR_CAPS_LOCK>; // 绑定大写锁定状态
+            leds = <&caps_lock_led>; // 指向上面定义的caps_lock_led
+        };
     };
+
+
+
+
+
+
 
     vbatt: vbatt {
         compatible = "zmk,battery-voltage-divider";
