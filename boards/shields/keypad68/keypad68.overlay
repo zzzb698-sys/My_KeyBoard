@@ -8,25 +8,6 @@
         zmk,battery = &vbatt;
     };
 
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <3>;
-        rows = <4>;
-        map = <
-            RC(0,0) RC(0,1) RC(0,2)
-            RC(1,0) RC(1,1) RC(1,2)
-            RC(2,0) RC(2,1) RC(2,2)
-            RC(3,0) RC(3,1) RC(3,2)
-        >;
-    };
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-voltage-divider";
-        io-channels = <&adc 2>;
-        power-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
-        output-ohms = <2000000>;    // 2M 接地（下地）
-        full-ohms = <2800000>;      // 总和 2.8M
-    };
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
@@ -45,6 +26,26 @@
             , <&gpio0 11 GPIO_ACTIVE_LOW>
             , <&gpio1 4 GPIO_ACTIVE_LOW>
             ;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <3>;
+        rows = <4>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2)
+            RC(1,0) RC(1,1) RC(1,2)
+            RC(2,0) RC(2,1) RC(2,2)
+            RC(3,0) RC(3,1) RC(3,2)
+        >;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-voltage-divider";
+        io-channels = <&adc 2>;
+        power-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+        output-ohms = <2000000>;    // 2M 接地（下地）
+        full-ohms = <2800000>;      // 总和 2.8M
     };
 };
 
