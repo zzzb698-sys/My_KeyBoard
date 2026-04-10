@@ -3,10 +3,6 @@
 #include <dt-bindings/zmk/hid_indicators.h>
 
 
-#include <dt-bindings/gpio/gpio.h>
-#include <zephyr/devicetree.h>
-#include <zephyr/drivers/gpio.h>
-
 / {
     chosen {
         zmk,kscan = &kscan0;
