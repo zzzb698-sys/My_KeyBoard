@@ -2,6 +2,10 @@
 #include <dt-bindings/adc/nrf-adc.h>  // 添加 ADC 常量定义
 #include <dt-bindings/zmk/hid_indicators.h>
 
+// ✅ 必须添加的头文件（修复所有未定义错误）
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include <zephyr/dt-bindings/adc/adc.h>
+
 
 / {
     chosen {
