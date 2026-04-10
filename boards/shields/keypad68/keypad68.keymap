@@ -40,7 +40,7 @@
     &kp TAB  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp R  &kp T  &kp Y  &kp U  &kp INS  &kp O  &kp PAUSE_BREAK  &kp LBKT  &kp RBKT     &kp BSLH  &kp DEL
 	&kp CLCK  &kp A  &kp SLCK  &kp D  &kp F  &kp G  &kp HOME  &kp J  &kp K  &kp L  &kp SEMI &kp SQT        &kp RET      &kp C_VOL_UP  
 	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp END  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT  &mmv MOVE_UP  &kp C_VOL_DN
-	&kp LCTRL  &kp LGUI  &kp LALT                 &out OUT_TOG                         &kp RALT &trans &kp RCTRL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGTH
+	&kp LCTRL  &kp LGUI  &kp LALT                 &out OUT_TOG                         &kp RALT &trans &kp RCTRL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
 			>;	
         };
     };
