@@ -83,6 +83,7 @@
 };
 
 &caps_lock_indicator {
+	on-while-idle;
 	status = "okay";
 	};
 
