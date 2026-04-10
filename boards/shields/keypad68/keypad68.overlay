@@ -27,11 +27,6 @@
             leds = <&caps_lock_led>;
         };
     };
-	&caps_lock_indicator {
-	status = "okay";
-	};
-
-
 
 
     kscan0: kscan {
@@ -86,6 +81,11 @@
         full-ohms = <2800000>;
     };
 };
+
+&caps_lock_indicator {
+	status = "okay";
+	};
+
 
 &adc {
     status = "okay";
