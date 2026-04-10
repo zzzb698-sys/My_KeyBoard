@@ -12,7 +12,6 @@
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
         zmk,battery = &vbatt;
-		zmk,leds = &caps_led;
     };
 
 
@@ -61,17 +60,6 @@
     };
 
 
-
- 	caps_led: caps_led {
-        compatible = "zmk,led-indicator";
-        label = "Caps Lock LED";
-        controller = <&gpio0>;
-        pin = <29>;
-        active_low = false;    /* P0.18 高电平亮（LED 阳极接 P0.18） */
-        default_state = "off";
-        #lighting-cells = <0>;
-        zmk,hid-indicator = <INDICATOR_CAPS_LOCK>;  /* 关键：绑定 HID 状态 */
-    };
 
 
 
