@@ -29,7 +29,7 @@
 		};
 
 		fn_layer {
-// ------------------------------------------------------------------------------------------------------&bootloader
+// ------------------------------------------------------------------------------------------------------
 // | ~   |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 | F10 |  F11 |  F12 |  BT_CLR   |  BOOT  |
 // | TAB | BT1 |  BT2 |  BT3 |  R  |  T  |  Y  |  U  |  INS  |  O  |  PB  |  [  |  ]  |   "|"  |   DEL  |
 // | CAPS  |  A  |  SLCK  |  D  |  F  |  G  | HOME|  J  |  K  |  L  |  ;  |  '  |     ENTER    |  VOLUP |
@@ -37,7 +37,7 @@
 // |  CTL  |  fn  |  ALT  |            trans USB/BT          |  ALT  |  CTL  |  LEFT  |  DOWN  | RIGHT  |
 // ------------------------------------------------------------------------------------------------------
 			bindings = <
-    &kp GRAVE  &kp F1  &kp F2  &kp F3 &kp F4  &kp F5   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_CLR  &sys_reset_to_bootloader
+    &kp GRAVE  &kp F1  &kp F2  &kp F3 &kp F4  &kp F5   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_CLR  &bootloader
     &kp TAB  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp R  &kp T  &kp Y  &kp U  &kp INS  &kp O  &kp PAUSE_BREAK  &kp LBKT  &kp RBKT     &kp BSLH  &kp DEL
 	&kp CLCK  &kp A  &kp SLCK  &kp D  &kp F  &kp G  &kp HOME  &kp J  &kp K  &kp L  &kp SEMI &kp SQT        &kp RET      &kp C_VOL_UP  
 	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp END  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT  &mmv MOVE_UP  &kp C_VOL_DN
