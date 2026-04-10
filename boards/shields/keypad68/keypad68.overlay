@@ -27,6 +27,9 @@
             leds = <&caps_lock_led>;
         };
     };
+	&caps_lock_indicator {
+	status = "okay";
+	};
 
 
 
