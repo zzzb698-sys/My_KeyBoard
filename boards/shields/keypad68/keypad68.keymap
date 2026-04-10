@@ -40,8 +40,8 @@
     &kp GRAVE  &kp F1  &kp F2  &kp F3 &kp F4  &kp F5   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &bt BT_CLR  &bootloader
     &kp TAB  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &kp R  &kp T  &kp Y  &kp U  &kp INS  &kp O  &kp PAUSE_BREAK  &kp LBKT  &kp RBKT     &kp BSLH  &kp DEL
 	&kp CLCK  &kp A  &kp SLCK  &kp D  &kp F  &kp G  &kp HOME  &kp J  &kp K  &kp L  &kp SEMI &kp SQT        &kp RET      &kp C_VOL_UP  
-	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp END  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT  &mmv MOVE_UP  &kp C_VOL_DN
-	&mkp LCLK  &kp LGUI  &mkp RCLK                 &out OUT_TOG                         &kp RALT &trans &kp RCTRL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
+	&kp LSHFT   &kp Z  &kp X  &kp C  &kp V  &kp B  &kp END  &kp M  &kp COMMA  &kp DOT  &mkp LCLK  &mkp RCLK  &mmv MOVE_UP  &kp C_VOL_DN
+	&kp LCTRL &kp LGUI &kp LALT                 &out OUT_TOG                         &kp RALT &trans &kp RCTRL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
 			>;	
         };
     };
